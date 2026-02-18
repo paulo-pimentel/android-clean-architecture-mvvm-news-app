@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">News App</string>
+    <string name="business_news">Business News</string>
+    <string name="article">Article</string>
+    <string name="error">Error</string>
+    <string name="retry">Retry</string>
+    <string name="no_image">NO IMAGE</string>
+    <string name="loading">Loading…</string>
+    <string name="today">Today</string>
+    <string name="yesterday">Yesterday</string>
+    <string name="days_ago">%d days ago</string>
+</resources>
