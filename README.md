@@ -188,6 +188,7 @@ The app fetches US business news from NewsAPI's top-headlines endpoint:
 
 ## Future Improvements
 
+- [ ] Implement navigation with Navigation 3
 - [ ] Add search functionality
 - [ ] Implement category filtering
 - [ ] Add UI tests with Compose Testing
