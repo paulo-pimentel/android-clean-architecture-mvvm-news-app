@@ -8,45 +8,15 @@ import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Interface for remote article data source.
- *
- * Defines the contract for fetching articles from the NewsAPI.
- */
 interface ArticleRemoteDataSource {
-
-    /**
-     * Fetches top headlines from NewsAPI.
-     *
-     * @return List of [ArticleDto] from the API.
-     * @throws NewsException.ApiKeyNotConfigured If API key is not set.
-     * @throws NewsException.Server If the request fails or returns an error.
-     */
     suspend fun getArticles(): List<ArticleDto>
 }
 
-/**
- * Implementation of [ArticleRemoteDataSource] using Retrofit.
- *
- * Fetches US business news from NewsAPI's top-headlines endpoint.
- *
- * @param newsApi The Retrofit API interface.
- */
 @Singleton
 class ArticleRemoteDataSourceImpl @Inject constructor(
     private val newsApi: NewsApi
 ) : ArticleRemoteDataSource {
 
-    /**
-     * Fetches top headlines from NewsAPI.
-     *
-     * Validates API key configuration before making the request.
-     * Handles various API error responses appropriately.
-     *
-     * @return List of [ArticleDto] from the API.
-     * @throws NewsException.ApiKeyNotConfigured If API key is not configured.
-     * @throws NewsException.Server If the API request fails.
-     */
     override suspend fun getArticles(): List<ArticleDto> {
         // Check API key configuration
         if (!EnvConfig.isApiKeyConfigured) {

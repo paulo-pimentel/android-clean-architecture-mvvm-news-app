@@ -22,18 +22,6 @@ import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.R
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.domain.entities.Article
 
-/**
- * Main screen displaying the list of news articles.
- *
- * Features:
- * - Pull-to-refresh functionality
- * - Loading, error, and success states
- * - Navigation to article detail on tap
- *
- * @param viewModel ViewModel managing the screen state.
- * @param onArticleClick Callback when an article is tapped.
- * @param modifier Modifier for customizing the layout.
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArticleListScreen(

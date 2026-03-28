@@ -8,14 +8,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.core.util.DateFormatter
 import java.time.Instant
 
-/**
- * Composable displaying article publication date.
- *
- * Shows relative date format ("Today", "Yesterday", "X days ago").
- *
- * @param publishedAt The publication date of the article.
- * @param modifier Modifier for customizing the layout.
- */
 @Composable
 fun ArticleDateLabel(
     publishedAt: Instant,

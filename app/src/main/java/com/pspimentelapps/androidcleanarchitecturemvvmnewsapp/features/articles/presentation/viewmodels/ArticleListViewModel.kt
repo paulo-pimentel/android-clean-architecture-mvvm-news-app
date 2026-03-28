@@ -16,25 +16,11 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.stateIn
 import javax.inject.Inject
 
-/**
- * ViewModel for the article list screen.
- *
- * Manages UI state using StateFlow with the stateIn pattern.
- * Handles initial load and pull-to-refresh functionality.
- *
- * @param getArticlesUseCase Use case for fetching articles.
- */
 @HiltViewModel
 class ArticleListViewModel @Inject constructor(
     private val getArticlesUseCase: GetArticlesUseCase
 ) : ViewModel() {
 
-    /**
-     * Trigger for refreshing articles.
-     *
-     * Emits [Unit] to trigger a new fetch operation.
-     * Uses replay=1 to ensure new collectors get the latest trigger.
-     */
     private val refreshTrigger = MutableSharedFlow<Unit>(
         replay = 1,
         onBufferOverflow = BufferOverflow.DROP_OLDEST
@@ -43,15 +29,6 @@ class ArticleListViewModel @Inject constructor(
         tryEmit(Unit)
     }
 
-    /**
-     * UI state exposed to the Compose UI.
-     *
-     * Transforms refresh triggers into UI states using the stateIn pattern.
-     * Automatically handles subscription lifecycle with [SharingStarted.WhileSubscribed].
-     *
-     * The 5-second stop timeout allows the state to survive configuration changes
-     * while properly cleaning up resources when no longer needed.
-     */
     @OptIn(ExperimentalCoroutinesApi::class)
     val uiState: StateFlow<ArticleUiState> = refreshTrigger
         .flatMapLatest { fetchArticles() }
@@ -61,21 +38,10 @@ class ArticleListViewModel @Inject constructor(
             initialValue = ArticleUiState.Loading
         )
 
-    /**
-     * Triggers a refresh of the article list.
-     *
-     * Called by pull-to-refresh or retry button.
-     * Safe to call multiple times; rapid calls are coalesced.
-     */
     fun refresh() {
         refreshTrigger.tryEmit(Unit)
     }
 
-    /**
-     * Fetches articles and emits appropriate UI states.
-     *
-     * @return Flow of [ArticleUiState] representing the fetch operation.
-     */
     private fun fetchArticles(): Flow<ArticleUiState> = flow {
         emit(ArticleUiState.Loading)
 
@@ -93,12 +59,6 @@ class ArticleListViewModel @Inject constructor(
         emit(state)
     }
 
-    /**
-     * Maps exceptions to user-friendly error messages.
-     *
-     * @param exception The exception to map.
-     * @return User-friendly error message string.
-     */
     private fun mapExceptionToMessage(exception: Throwable): String {
         return when (exception) {
             is NewsException.Server ->

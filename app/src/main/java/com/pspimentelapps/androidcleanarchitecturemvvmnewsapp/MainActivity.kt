@@ -13,12 +13,6 @@ import androidx.compose.ui.Modifier
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.presentation.navigation.NewsNavGraph
 import dagger.hilt.android.AndroidEntryPoint
 
-/**
- * Main entry point activity for the News App.
- *
- * Uses single-activity architecture with Compose navigation.
- * Annotated with [AndroidEntryPoint] to enable Hilt injection.
- */
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
 

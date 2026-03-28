@@ -1,6 +1,5 @@
 package com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.domain.usecases
 
-import coil3.util.CoilUtils.result
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.core.error.NewsException
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.domain.repositories.ArticleRepository
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.domain.entities.Article

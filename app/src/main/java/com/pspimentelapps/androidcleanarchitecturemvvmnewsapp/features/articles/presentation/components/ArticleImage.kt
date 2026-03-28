@@ -23,19 +23,6 @@ import coil3.request.ImageRequest
 import coil3.request.crossfade
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.R
 
-/**
- * Composable for displaying article images with error handling.
- *
- * Shows a "NO IMAGE" placeholder when:
- * - Image URL is empty
- * - Image fails to load
- *
- * Uses Coil for efficient image loading and caching.
- *
- * @param imageUrl The URL of the image to display.
- * @param modifier Modifier for customizing the layout.
- * @param height The height of the image container.
- */
 @Composable
 fun ArticleImage(
     imageUrl: String,
@@ -62,12 +49,6 @@ fun ArticleImage(
     )
 }
 
-/**
- * Placeholder composable displayed when image is unavailable.
- *
- * @param modifier Modifier for customizing the layout.
- * @param height The height of the placeholder.
- */
 @Composable
 private fun NoImagePlaceholder(
     modifier: Modifier = Modifier,

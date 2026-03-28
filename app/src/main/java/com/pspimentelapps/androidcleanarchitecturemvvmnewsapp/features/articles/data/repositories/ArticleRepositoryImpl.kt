@@ -9,19 +9,6 @@ import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.
 import javax.inject.Inject
 import javax.inject.Singleton
 
-/**
- * Implementation of [ArticleRepository].
- *
- * Handles the data fetching strategy:
- * - Online: Fetch from remote API, cache result, return data
- * - Online with error: Fall back to cached data
- * - Offline: Return cached data if available
- * - API key errors are returned immediately without fallback
- *
- * @param remoteDataSource Remote data source for API calls.
- * @param localDataSource Local data source for caching.
- * @param networkInfo Network connectivity checker.
- */
 @Singleton
 class ArticleRepositoryImpl @Inject constructor(
     private val remoteDataSource: ArticleRemoteDataSource,
@@ -29,16 +16,6 @@ class ArticleRepositoryImpl @Inject constructor(
     private val networkInfo: NetworkInfo
 ) : ArticleRepository {
 
-    /**
-     * Fetches articles with automatic caching and offline support.
-     *
-     * Strategy:
-     * - If online: Try remote fetch, cache on success
-     * - If remote fails (except API key error): Try cache
-     * - If offline: Return cached data
-     *
-     * @return [Result.success] with articles, or [Result.failure] with exception.
-     */
     override suspend fun getArticles(): Result<List<Article>> {
         return if (networkInfo.isConnected()) {
             fetchFromRemoteWithFallback()
@@ -47,14 +24,6 @@ class ArticleRepositoryImpl @Inject constructor(
         }
     }
 
-    /**
-     * Fetches articles from remote API with cache fallback on failure.
-     *
-     * API key configuration errors are NOT retried from cache,
-     * as this is a user configuration issue that needs to be addressed.
-     *
-     * @return [Result] with articles or failure.
-     */
     private suspend fun fetchFromRemoteWithFallback(): Result<List<Article>> {
         return runCatching {
             val articles = remoteDataSource.getArticles()
@@ -71,11 +40,6 @@ class ArticleRepositoryImpl @Inject constructor(
         }
     }
 
-    /**
-     * Fetches articles from local cache.
-     *
-     * @return [Result] with cached articles or cache failure.
-     */
     private suspend fun fetchFromCache(): Result<List<Article>> {
         return runCatching {
             localDataSource.getLastArticles().map { it.toDomain() }

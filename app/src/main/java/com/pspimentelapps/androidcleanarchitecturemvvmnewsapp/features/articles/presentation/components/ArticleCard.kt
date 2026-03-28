@@ -25,19 +25,6 @@ import androidx.compose.ui.unit.dp
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.domain.entities.Article
 import java.time.Instant
 
-/**
- * Card composable for displaying a single article.
- *
- * Shows:
- * - Article image (or "NO IMAGE" placeholder)
- * - Title
- * - Description
- * - Source name and publication date
- *
- * @param article The article to display.
- * @param onClick Callback when the card is clicked.
- * @param modifier Modifier for customizing the layout.
- */
 @Composable
 fun ArticleCard(
     article: Article,

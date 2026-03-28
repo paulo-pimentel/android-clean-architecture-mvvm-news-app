@@ -22,15 +22,6 @@ private val LightColorScheme = lightColorScheme(
     tertiary = LightBlue40
 )
 
-/**
- * Theme composable for the News App.
- *
- * Supports dynamic colors on Android 12+ and automatic dark/light mode.
- *
- * @param darkTheme Whether to use dark theme.
- * @param dynamicColor Whether to use dynamic colors (Android 12+).
- * @param content The content to be themed.
- */
 @Composable
 fun NewsAppTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),

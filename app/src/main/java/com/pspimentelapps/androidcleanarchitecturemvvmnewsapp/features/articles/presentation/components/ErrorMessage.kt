@@ -24,17 +24,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.R
 
-/**
- * Composable displaying an error message with optional retry button.
- *
- * Shows a user-friendly error message with an appropriate icon.
- * The retry button is hidden for configuration errors (API key issues).
- *
- * @param message The error message to display.
- * @param isConfigError `true` if this is a configuration error.
- * @param onRetry Callback when retry button is clicked.
- * @param modifier Modifier for customizing the layout.
- */
 @Composable
 fun ErrorMessage(
     message: String,

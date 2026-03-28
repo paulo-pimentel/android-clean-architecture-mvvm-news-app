@@ -12,32 +12,16 @@ import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
-/** SharedPreferences file name. */
 private const val PREFS_NAME = "news_app_prefs"
 
-/**
- * Hilt module providing core application dependencies.
- *
- * Provides singleton instances of SharedPreferences and NetworkInfo.
- */
 @Module
 @InstallIn(SingletonComponent::class)
 abstract class AppModule {
-
-    /**
-     * Binds [NetworkInfoImpl] to [NetworkInfo] interface.
-     */
     @Binds
     @Singleton
     abstract fun bindNetworkInfo(networkInfoImpl: NetworkInfoImpl): NetworkInfo
 
     companion object {
-        /**
-         * Provides SharedPreferences instance for local data storage.
-         *
-         * @param context Application context.
-         * @return SharedPreferences instance.
-         */
         @Provides
         @Singleton
         fun provideSharedPreferences(

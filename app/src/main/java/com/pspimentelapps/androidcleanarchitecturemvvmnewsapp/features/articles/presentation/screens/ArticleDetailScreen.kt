@@ -31,19 +31,6 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.viewinterop.AndroidView
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.R
 
-/**
- * Detail screen displaying article content in a WebView.
- *
- * Features:
- * - Loading progress indicator
- * - JavaScript enabled for full page functionality
- * - Back navigation to article list
- *
- * @param url The URL of the article to display.
- * @param sourceName The name of the news source for the app bar.
- * @param onBack Callback when back navigation is triggered.
- * @param modifier Modifier for customizing the layout.
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArticleDetailScreen(
@@ -104,13 +91,6 @@ fun ArticleDetailScreen(
     }
 }
 
-/**
- * WebView composable for displaying article content.
- *
- * @param url The URL to load.
- * @param onProgressChange Callback for loading progress updates.
- * @param modifier Modifier for customizing the layout.
- */
 @SuppressLint("SetJavaScriptEnabled")
 @Composable
 private fun ArticleWebView(

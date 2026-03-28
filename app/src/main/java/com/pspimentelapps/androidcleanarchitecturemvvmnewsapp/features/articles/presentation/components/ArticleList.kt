@@ -19,14 +19,6 @@ import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 
-/**
- * Composable displaying a scrollable list of articles with pull-to-refresh.
- *
- * @param articles The list of articles to display.
- * @param onArticleClick Callback when an article is clicked.
- * @param onRefresh Callback when pull-to-refresh is triggered.
- * @param modifier Modifier for customizing the layout.
- */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ArticleList(

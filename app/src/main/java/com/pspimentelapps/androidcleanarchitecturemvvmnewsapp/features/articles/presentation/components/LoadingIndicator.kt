@@ -8,13 +8,6 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 
-/**
- * Composable displaying a centered loading indicator.
- *
- * Used when articles are being fetched for the first time.
- *
- * @param modifier Modifier for customizing the layout.
- */
 @Composable
 fun LoadingIndicator(
     modifier: Modifier = Modifier

@@ -10,31 +10,15 @@ import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.
 import com.pspimentelapps.androidcleanarchitecturemvvmnewsapp.features.articles.presentation.screens.ArticleListScreen
 import kotlinx.serialization.Serializable
 
-/**
- * Type-safe route for the article list screen (home).
- */
 @Serializable
 data object ArticleListRoute
 
-/**
- * Type-safe route for the article detail screen.
- *
- * @param url The URL of the article to display in WebView.
- * @param sourceName The name of the news source for the app bar.
- */
 @Serializable
 data class ArticleDetailRoute(
     val url: String,
     val sourceName: String
 )
 
-/**
- * Main navigation graph for the news app.
- *
- * Uses Navigation Compose with type-safe routes and Kotlin Serialization.
- *
- * @param modifier Modifier for the NavHost.
- */
 @Composable
 fun NewsNavGraph(
     modifier: Modifier = Modifier
