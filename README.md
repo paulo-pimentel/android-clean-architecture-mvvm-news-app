@@ -66,6 +66,15 @@ app/src/main/java/com/portfolio/newsapp/
 └── NewsApplication.kt             # Hilt application
 ```
 
+## Branches
+
+| Branch | Description |
+|--------|-------------|
+| `master` | Clean code without comments for improved readability |
+| `documented` | Same code with comprehensive KDoc comments explaining classes, functions, and implementation details |
+
+> **Tip**: If you're learning Clean Architecture or MVVM, check out the `documented` branch for detailed explanations throughout the codebase.
+
 ## Getting Started
 
 ### Prerequisites
